@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Portfolio de Koffi Moahiet Ange Laurette, développeuse mobile et web spécialisée React Native, Expo, UX/UI et solutions digitales."
+    />
+    <meta name="theme-color" content="#111318" />
+    <title>Koffi Moahiet Ange Laurette | Portfolio</title>
+    <link rel="preload" as="image" href="assets/portrait.webp" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#accueil" aria-label="Retour à l'accueil">
+        <span class="brand-mark">AK</span>
+        <span>Ange Koffi</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" data-nav-toggle>
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+
+      <nav class="main-nav" data-nav>
+        <a href="#projets">Projets</a>
+        <a href="#experiences">Expériences</a>
+        <a href="#competences">Compétences</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="accueil" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <p class="eyebrow">Développeuse mobile & web - UX/UI</p>
+          <h1 id="hero-title">Koffi Moahiet Ange Laurette</h1>
+          <p class="hero-copy">
+            Je conçois des applications mobiles et web fluides, utiles et prêtes à passer de l'idée au produit. Mon terrain de jeu:
+            React Native, Expo, Figma, les API et les défis tech en équipe.
+          </p>
+
+          <div class="hero-actions" aria-label="Actions principales">
+            <a class="button primary" href="#projets">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M7 17 17 7M8 7h9v9" />
+              </svg>
+              Voir mes projets
+            </a>
+            <a class="button secondary" href="assets/CV-Moahiet-Ange-Laurette-KOFFI.pdf" download>
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16" />
+              </svg>
+              Télécharger mon CV
+            </a>
+          </div>
+
+          <dl class="hero-stats" aria-label="Points forts">
+            <div>
+              <dt>6</dt>
+              <dd>projets présentés</dd>
+            </div>
+            <div>
+              <dt>4</dt>
+              <dd>prix hackathon</dd>
+            </div>
+            <div>
+              <dt>2025</dt>
+              <dd>Comafrique Technologie</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section intro-section" aria-labelledby="intro-title">
+        <div class="section-grid">
+          <div>
+            <p class="section-kicker">À propos</p>
+            <h2 id="intro-title">Une développeuse qui relie design, code et exécution terrain.</h2>
+          </div>
+          <div class="intro-copy">
+            <p>
+              Passionnée par le développement web et mobile, je crée des interfaces interactives avec une attention particulière portée
+              à l'expérience utilisateur. Mes expériences en freelance, en entreprise et en compétition technologique m'ont appris à
+              livrer vite, proprement et avec une vraie logique produit.
+            </p>
+            <p>
+              Basée à Abidjan, je travaille en télétravail sur des applications mobiles iOS/Android, des plateformes web et des
+              prototypes UX/UI.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section awards-section" aria-labelledby="awards-title">
+        <div class="section-heading">
+          <p class="section-kicker">Distinctions</p>
+          <h2 id="awards-title">Des projets reconnus en compétition.</h2>
+        </div>
+        <div class="awards-list">
+          <article>
+            <span>01</span>
+            <h3>Miss Hackathon No-Code 2024</h3>
+            <p>1ère place lors de la compétition organisée par l'AUF après 48 heures de formation, conception et présentation.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>FEMAll 4</h3>
+            <p>1ère place au concours de pitch avec une solution de lampadaires intelligents éco-responsables.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>JEPEN 2024</h3>
+            <p>Trois distinctions, dont le Prix de la Meilleure Innovation Mobile et le Prix spécial du parrain.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Hackathon Moov</h3>
+            <p>3ème place et prix spécial du jury pour une application développée en équipe.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section projects-section" id="projets" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="section-kicker">Portfolio</p>
+          <h2 id="projects-title">Projets sélectionnés</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-media project-media-contain">
+              <img src="assets/tchecker.webp" alt="Visuel Tchecker, outil d'analyse de contrats par IA" />
+            </div>
+            <div class="project-content">
+              <p class="project-meta">Cofondatrice - IA juridique</p>
+              <h3>Tchecker / ContractChecker</h3>
+              <p>
+                Plateforme web qui analyse les contrats par IA en 60 secondes afin de détecter les clauses abusives,
+                les risques cachés, le jargon juridique et les points à renégocier avant signature.
+              </p>
+              <div class="project-links" aria-label="Liens Tchecker">
+                <a href="https://contracttchecker.laravel.cloud" target="_blank" rel="noreferrer">Voir le site</a>
+                <a href="https://tcheckerblog.blogspot.com/2026/04/ne-signez-plus-jamais-dans-le-noir.html" target="_blank" rel="noreferrer">Lire le blog</a>
+              </div>
+              <ul class="tag-list">
+                <li>Cofondation</li>
+                <li>IA</li>
+                <li>Laravel Cloud</li>
+                <li>Blog produit</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card featured">
+            <div class="project-media project-media-split">
+              <img src="assets/moov-app.webp" alt="Capture d'écran d'une application mobile développée durant le hackathon Moov" />
+              <img src="assets/moov-flow.webp" alt="Deuxième écran mobile du projet hackathon Moov" />
+            </div>
+            <div class="project-content">
+              <p class="project-meta">Hackathon Moov</p>
+              <h3>Application mobile primée</h3>
+              <p>
+                Participation à la conception et à la finalisation d'une application en équipe, avec intégration d'API,
+                retouches UI dans le code et build final.
+              </p>
+              <ul class="tag-list">
+                <li>UX/UI</li>
+                <li>API</li>
+                <li>Mobile</li>
+                <li>Build</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/femall-stage.webp" alt="Remise de prix FEMAll 4 sur scène" />
+            </div>
+            <div class="project-content">
+              <p class="project-meta">FEMAll 4</p>
+              <h3>Lampadaires intelligents</h3>
+              <p>
+                Pitch d'une solution d'éclairage public autonome et éco-responsable, défendue devant un jury et classée première.
+              </p>
+              <ul class="tag-list">
+                <li>Pitch</li>
+                <li>Innovation</li>
+                <li>Équipe</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/auf-award.webp" alt="Remise de prix AUF Miss Hackathon No-Code 2024" />
+            </div>
+            <div class="project-content">
+              <p class="project-meta">AUF No-Code</p>
+              <h3>Prototype en 48 heures</h3>
+              <p>
+                Création rapide d'une solution no-code après une formation intensive, puis présentation finale en compétition.
+              </p>
+              <ul class="tag-list">
+                <li>No-code</li>
+                <li>Prototype</li>
+                <li>1ère place</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/jepen-award.webp" alt="Remise de prix JEPEN 2024" />
+            </div>
+            <div class="project-content">
+              <p class="project-meta">JEPEN 2024</p>
+              <h3>Innovation mobile récompensée</h3>
+              <p>
+                Projet étudiant distingué par trois prix, avec une reconnaissance particulière sur l'innovation mobile.
+              </p>
+              <ul class="tag-list">
+                <li>Mobile</li>
+                <li>Innovation</li>
+                <li>Prix</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/technovore-dashboard.webp" alt="Dashboard web pour l'optimisation de la gestion de l'eau" />
+            </div>
+            <div class="project-content">
+              <p class="project-meta">Technovore Hackathon</p>
+              <h3>Gestion de l'eau en zones rurales</h3>
+              <p>
+                Conception d'un système avec dashboard interactif et site web autour de l'optimisation des ressources naturelles.
+              </p>
+              <ul class="tag-list">
+                <li>Dashboard</li>
+                <li>Web</li>
+                <li>Impact</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section experience-section" id="experiences" aria-labelledby="experience-title">
+        <div class="section-heading">
+          <p class="section-kicker">Parcours</p>
+          <h2 id="experience-title">Expériences professionnelles</h2>
+        </div>
+
+        <div class="timeline">
+          <article>
+            <time>Depuis avril 2025</time>
+            <div>
+              <h3>Ingénieure développeuse mobile et web</h3>
+              <p>Comafrique Technologie - Vridi</p>
+              <p>Développement d'applications mobile et web, design UX/UI, intégration et amélioration d'interfaces.</p>
+            </div>
+          </article>
+          <article>
+            <time>Depuis 2024</time>
+            <div>
+              <h3>Développeuse mobile, web et UX/UI</h3>
+              <p>Freelance</p>
+              <p>Interventions sur des solutions telles que Transconnect, MEGA, Eyaa, Immobiznet, Leela-homes, Leecar et Shty.</p>
+            </div>
+          </article>
+          <article>
+            <time>2023 - 2024</time>
+            <div>
+              <h3>Développeuse d'application web</h3>
+              <p>SGDIS</p>
+              <p>Développement de solutions web en ligne et contribution aux interfaces métiers.</p>
+            </div>
+          </article>
+          <article>
+            <time>2022 - 2023</time>
+            <div>
+              <h3>Développeuse web - AMA Dr. DAGRI</h3>
+              <p>SGDIS</p>
+              <p>Développement d'une solution en ligne pour AMA & Développement.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section skills-section" id="competences" aria-labelledby="skills-title">
+        <div class="section-heading">
+          <p class="section-kicker">Stack</p>
+          <h2 id="skills-title">Compétences</h2>
+        </div>
+
+        <div class="skills-layout">
+          <article>
+            <h3>Mobile & Front-end</h3>
+            <ul>
+              <li>React Native & Expo</li>
+              <li>Next.js</li>
+              <li>React.js</li>
+              <li>.NET MAUI</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Design & Produit</h3>
+            <ul>
+              <li>Figma</li>
+              <li>UX/UI design</li>
+              <li>Conception logo</li>
+              <li>Prototypage no-code</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Back-end & Outils</h3>
+            <ul>
+              <li>PostgreSQL & SQLite</li>
+              <li>Socket.IO</li>
+              <li>Postman</li>
+              <li>GitHub Actions & GitLab CI</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-inner">
+          <div>
+            <p class="section-kicker">Contact</p>
+            <h2 id="contact-title">Un projet mobile ou web à concrétiser ?</h2>
+            <p>
+              Je suis disponible pour des missions en télétravail autour du développement mobile, web, UX/UI et prototypage.
+            </p>
+          </div>
+          <div class="contact-actions">
+            <a class="button primary" href="mailto:kange677@gmail.com">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M4 6h16v12H4z" />
+                <path d="m4 7 8 6 8-6" />
+              </svg>
+              kange677@gmail.com
+            </a>
+            <a class="button secondary" href="tel:+2250779783286">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 1.9Z" />
+              </svg>
+              +225 07 79 78 32 86
+            </a>
+            <a class="text-link" href="https://github.com/joliebebe" target="_blank" rel="noreferrer">
+              GitHub @joliebebe
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M7 17 17 7M8 7h9v9" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Koffi Moahiet Ange Laurette. Portfolio mobile & web.</p>
+      <a href="#accueil">Retour en haut</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
