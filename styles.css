@@ -1001,7 +1001,7 @@ select {
   box-shadow: var(--shadow-soft);
 }
 
-.reference-card span {
+.reference-card .reference-index {
   display: inline-flex;
   margin-bottom: 16px;
   color: var(--gold);
@@ -1025,6 +1025,17 @@ select {
 .reference-card a {
   color: var(--gold-deep);
   font-weight: 950;
+}
+
+.reference-card .reference-email {
+  display: block;
+  color: var(--gold-deep);
+  font-weight: 950;
+  overflow-wrap: anywhere;
+}
+
+.reference-card .reference-email-missing {
+  color: rgba(56, 42, 14, 0.54);
 }
 
 .skills-layout {
