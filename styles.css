@@ -453,6 +453,28 @@ select {
   margin-top: 18px;
 }
 
+.about-photo {
+  margin: 24px 0 0;
+  overflow: hidden;
+  color: var(--muted);
+  background: #fff;
+  border: 1px solid rgba(214, 161, 31, 0.22);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+}
+
+.about-photo img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center 24%;
+}
+
+.about-photo figcaption {
+  padding: 14px 16px 16px;
+  font-size: 0.9rem;
+}
+
 .section-heading {
   display: flex;
   align-items: end;
@@ -478,8 +500,10 @@ select {
 }
 
 .achievement-card {
+  display: flex;
   min-width: 0;
-  padding: 24px;
+  flex-direction: column;
+  overflow: hidden;
   background: #fff;
   border: 1px solid rgba(214, 161, 31, 0.22);
   border-radius: 8px;
@@ -492,6 +516,48 @@ select {
     linear-gradient(135deg, rgba(29, 29, 33, 0.94), rgba(155, 111, 0, 0.86)),
     linear-gradient(135deg, var(--gold), var(--gold-bright));
   border-color: transparent;
+}
+
+.achievement-media {
+  margin: 0;
+  overflow: hidden;
+  background: #171719;
+  aspect-ratio: 4 / 3;
+}
+
+.achievement-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.achievement-card:first-child .achievement-media {
+  background: #243f91;
+}
+
+.achievement-card:first-child .achievement-media img {
+  padding: 16px;
+  object-fit: contain;
+}
+
+.achievement-card:nth-child(3) .achievement-media,
+.achievement-card:nth-child(4) .achievement-media {
+  background:
+    linear-gradient(135deg, rgba(245, 197, 66, 0.12), rgba(255, 255, 255, 0)),
+    #171719;
+}
+
+.achievement-card:nth-child(3) .achievement-media img,
+.achievement-card:nth-child(4) .achievement-media img {
+  padding: 12px;
+  object-fit: contain;
+}
+
+.achievement-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 22px;
 }
 
 .achievement-card span {
@@ -817,9 +883,12 @@ select {
 }
 
 .trust-card {
-  display: grid;
+  display: flex;
   min-height: 128px;
-  place-items: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
   padding: 18px;
   text-align: center;
   background: #fff;
@@ -834,23 +903,46 @@ select {
   object-fit: contain;
 }
 
-.trust-card.app-logo img {
-  width: 74px;
-  height: 74px;
-  border-radius: 16px;
-  object-fit: cover;
-  object-position: center top;
-}
-
-.trust-card.wide-logo img {
-  max-width: 150px;
-}
-
-.trust-card.wordmark span {
-  color: var(--gold-deep);
-  font-size: 1rem;
+.trust-card span {
+  color: var(--ink);
+  font-size: 0.73rem;
   font-weight: 950;
   letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.trust-card.yabc-logo img {
+  max-width: 118px;
+  max-height: 78px;
+}
+
+.trust-card.ehoo-logo img {
+  max-width: 92px;
+  max-height: 76px;
+}
+
+.trust-card.shty-logo img {
+  width: 82px;
+  height: 82px;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.trust-card.pdoc-logo img {
+  max-width: 92px;
+  max-height: 72px;
+}
+
+.trust-card.divin-logo img {
+  max-width: 112px;
+  max-height: 66px;
+}
+
+.trust-card.comafrique-logo img {
+  max-width: 148px;
+  max-height: 58px;
+  object-position: center;
 }
 
 .experience-section {
@@ -888,6 +980,51 @@ select {
 
 .timeline p {
   margin: 8px 0 0;
+}
+
+.references-section {
+  padding-top: 76px;
+}
+
+.references-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.reference-card {
+  min-width: 0;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid rgba(214, 161, 31, 0.22);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+}
+
+.reference-card span {
+  display: inline-flex;
+  margin-bottom: 16px;
+  color: var(--gold);
+  font-size: 1.45rem;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.reference-card h3 {
+  margin: 0;
+  color: var(--charcoal);
+  font-size: 1.03rem;
+  line-height: 1.18;
+}
+
+.reference-card p {
+  margin: 10px 0 18px;
+  color: var(--ink-soft);
+}
+
+.reference-card a {
+  color: var(--gold-deep);
+  font-weight: 950;
 }
 
 .skills-layout {
@@ -1017,7 +1154,8 @@ select {
   .awards-list,
   .achievement-grid,
   .skills-layout,
-  .timeline {
+  .timeline,
+  .references-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1190,7 +1328,8 @@ select {
   .awards-list,
   .achievement-grid,
   .skills-layout,
-  .timeline {
+  .timeline,
+  .references-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1245,9 +1384,10 @@ select {
   }
 
   .project-content,
-  .achievement-card,
+  .achievement-content,
   .awards-list article,
-  .skills-layout article {
+  .skills-layout article,
+  .reference-card {
     padding: 20px;
   }
 
