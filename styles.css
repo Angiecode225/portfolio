@@ -158,7 +158,8 @@ select {
 
 .nav-toggle svg,
 .button svg,
-.text-link svg {
+.text-link svg,
+.hero-socials svg {
   width: 18px;
   height: 18px;
   fill: none;
@@ -260,10 +261,11 @@ select {
 
 .hero-socials a {
   display: grid;
-  min-width: 42px;
+  width: 44px;
+  min-width: 44px;
   height: 42px;
   place-items: center;
-  padding: 0 10px;
+  padding: 0;
   color: var(--gold-deep);
   background: #fff;
   border: 1px solid rgba(214, 161, 31, 0.34);
@@ -274,6 +276,12 @@ select {
   transition:
     transform 180ms ease,
     background 180ms ease;
+}
+
+.hero-socials img {
+  width: 19px;
+  height: 19px;
+  object-fit: contain;
 }
 
 .hero-socials a:hover,
@@ -459,6 +467,60 @@ select {
   color: var(--ink-soft);
 }
 
+.achievements-section {
+  padding-top: 76px;
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.achievement-card {
+  min-width: 0;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid rgba(214, 161, 31, 0.22);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+}
+
+.achievement-card.highlight {
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(29, 29, 33, 0.94), rgba(155, 111, 0, 0.86)),
+    linear-gradient(135deg, var(--gold), var(--gold-bright));
+  border-color: transparent;
+}
+
+.achievement-card span {
+  display: inline-flex;
+  margin-bottom: 20px;
+  color: var(--gold);
+  font-size: 1.7rem;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.achievement-card.highlight span,
+.achievement-card.highlight h3,
+.achievement-card.highlight p {
+  color: #fff;
+}
+
+.achievement-card h3 {
+  margin: 0;
+  color: var(--charcoal);
+  font-size: 1.06rem;
+  line-height: 1.18;
+}
+
+.achievement-card p {
+  margin: 12px 0 0;
+  color: var(--ink-soft);
+}
+
 .news-section,
 .awards-section,
 .experience-section {
@@ -476,6 +538,11 @@ select {
   align-items: stretch;
 }
 
+.bento-gallery {
+  grid-template-columns: 1.1fr 1.1fr 0.85fr 0.85fr;
+  grid-auto-rows: minmax(190px, 1fr);
+}
+
 .news-photo {
   min-width: 0;
   margin: 0;
@@ -489,8 +556,17 @@ select {
 .news-photo img {
   width: 100%;
   height: 100%;
-  min-height: 420px;
+  min-height: 0;
   object-fit: cover;
+}
+
+.news-photo-main {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.news-photo-tall {
+  grid-row: span 2;
 }
 
 .news-photo.wide {
@@ -518,6 +594,13 @@ select {
   box-shadow: var(--shadow-soft);
 }
 
+.awards-list article {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+}
+
 .awards-list article:first-child {
   color: #fff;
   background:
@@ -530,6 +613,23 @@ select {
 .awards-list article:first-child h3,
 .awards-list article:first-child p {
   color: #fff;
+}
+
+.awards-list article > div {
+  padding: 22px;
+}
+
+.award-media {
+  margin: 0;
+  overflow: hidden;
+  background: #171719;
+  aspect-ratio: 4 / 3;
+}
+
+.award-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .awards-list span {
@@ -706,6 +806,53 @@ select {
   font-weight: 900;
 }
 
+.trust-section {
+  padding-top: 78px;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.trust-card {
+  display: grid;
+  min-height: 128px;
+  place-items: center;
+  padding: 18px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid rgba(214, 161, 31, 0.22);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+}
+
+.trust-card img {
+  max-width: 104px;
+  max-height: 68px;
+  object-fit: contain;
+}
+
+.trust-card.app-logo img {
+  width: 74px;
+  height: 74px;
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.trust-card.wide-logo img {
+  max-width: 150px;
+}
+
+.trust-card.wordmark span {
+  color: var(--gold-deep);
+  font-size: 1rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+}
+
 .experience-section {
   padding-top: 78px;
   padding-bottom: 90px;
@@ -868,6 +1015,7 @@ select {
   }
 
   .awards-list,
+  .achievement-grid,
   .skills-layout,
   .timeline {
     grid-template-columns: repeat(2, 1fr);
@@ -877,7 +1025,14 @@ select {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .bento-gallery {
+    grid-auto-rows: 230px;
+  }
+
+  .news-photo-main,
+  .news-photo-tall,
   .news-photo.wide {
+    grid-column: auto;
     grid-row: auto;
   }
 
@@ -888,6 +1043,10 @@ select {
 
   .contact-actions {
     max-width: 560px;
+  }
+
+  .trust-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -1029,6 +1188,7 @@ select {
   }
 
   .awards-list,
+  .achievement-grid,
   .skills-layout,
   .timeline {
     grid-template-columns: 1fr;
@@ -1040,10 +1200,10 @@ select {
 
   .news-gallery {
     grid-template-columns: 1fr;
+    grid-auto-rows: auto;
   }
 
   .news-photo img {
-    min-height: 0;
     aspect-ratio: 4 / 5;
   }
 
@@ -1065,6 +1225,10 @@ select {
     max-width: var(--max);
   }
 
+  .trust-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .site-footer {
     align-items: flex-start;
     flex-direction: column;
@@ -1081,9 +1245,22 @@ select {
   }
 
   .project-content,
+  .achievement-card,
   .awards-list article,
   .skills-layout article {
     padding: 20px;
+  }
+
+  .awards-list article {
+    padding: 0;
+  }
+
+  .awards-list article > div {
+    padding: 20px;
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr;
   }
 }
 
