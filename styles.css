@@ -1041,28 +1041,35 @@ select {
 
 .skills-layout ul {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .skills-layout li {
-  position: relative;
-  padding-left: 18px;
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
   color: var(--ink-soft);
+  background: rgba(255, 249, 232, 0.62);
+  border: 1px solid rgba(214, 161, 31, 0.18);
+  border-radius: 8px;
+  font-weight: 780;
 }
 
-.skills-layout li::before {
-  position: absolute;
-  top: 0.72em;
-  left: 0;
-  width: 7px;
-  height: 7px;
-  content: "";
-  background: var(--gold);
-  border-radius: 2px;
-  transform: translateY(-50%);
+.skills-layout li img {
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.skills-layout li span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .contact-section {
