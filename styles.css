@@ -1034,10 +1034,6 @@ select {
   overflow-wrap: anywhere;
 }
 
-.reference-card .reference-email-missing {
-  color: rgba(56, 42, 14, 0.54);
-}
-
 .skills-layout {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
