@@ -461,6 +461,10 @@ select {
     #151821;
 }
 
+.project-media-wide {
+  aspect-ratio: 16 / 9;
+}
+
 .project-content {
   display: flex;
   flex: 1;
