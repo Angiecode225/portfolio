@@ -528,48 +528,85 @@ body.menu-open .site-header {
 /* --------------------------------------------------------------------------
    Accueil
    -------------------------------------------------------------------------- */
+/* Un plan plein cadre : la photo occupe l'écran et se fond dans la page,
+   le nom se pose dessus comme un titre de générique. */
 .hero {
-  padding-top: calc(var(--header-h) + clamp(32px, 6vw, 72px));
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  overflow: clip;
+}
+
+.hero-portrait {
+  grid-area: 1 / 1;
+  position: relative;
+  z-index: -1;
+  --hero-scale: 1.4;
+  height: min(86svh, 760px);
+  min-height: 520px;
+  /* Le dernier rang de pixels échappe parfois au masque dans Chrome :
+     on rogne les bords déjà transparents (bas, et gauche sur grand écran). */
+  clip-path: inset(0 0 2px 0);
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* Plan serré : la photo est recadrée par l'échelle, ancrée sur le visage */
+.hero-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  transform-origin: 80% 22%;
+  scale: var(--hero-scale);
+  filter: saturate(0.86) contrast(1.06);
+}
+
+/* Étalonnage : le plan s'efface dans la page par un masque d'opacité
+   (en haut pour l'en-tête, en bas sous le titre). Les masques se multiplient. */
+.hero-portrait {
+  --fade-top: linear-gradient(180deg, rgb(0 0 0 / 0.3) 0%, #000 20%);
+  --fade-bottom: linear-gradient(0deg, transparent 0%, transparent 10%, rgb(0 0 0 / 0.12) 26%, rgb(0 0 0 / 0.55) 44%, #000 66%);
+  --fade-side: linear-gradient(#000, #000);
+  -webkit-mask-image: var(--fade-top), var(--fade-bottom), var(--fade-side);
+  -webkit-mask-composite: source-in;
+  mask-image: var(--fade-top), var(--fade-bottom), var(--fade-side);
+  mask-composite: intersect;
+}
+
+.hero-frame {
+  grid-area: 1 / 1;
+  align-self: end;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-grid {
   display: grid;
   gap: 32px;
+  padding-top: 28px;
 }
 
 .hero-title {
-  margin-top: 20px;
+  margin-top: 14px;
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: clamp(5.5rem, 22vw, 12rem);
-  line-height: 0.86;
+  font-size: clamp(5.5rem, 25vw, 9rem);
+  line-height: 0.84;
   letter-spacing: -0.035em;
 }
 
 .hero-title em {
   display: block;
-  padding-left: 0.42em;
-}
-
-.hero-portrait {
-  overflow: hidden;
-  aspect-ratio: 4 / 5;
-  background: var(--panel);
-  border-radius: 3px;
-}
-
-.hero-portrait img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 30%;
+  padding-left: 0.5em;
 }
 
 .hero-lead {
-  max-width: 30ch;
+  max-width: 32ch;
   font-family: var(--font-serif);
-  font-size: clamp(1.5rem, 2.4vw, 2rem);
-  line-height: 1.22;
+  font-size: clamp(1.375rem, 1.9vw, 1.75rem);
+  line-height: 1.24;
   text-wrap: pretty;
 }
 
@@ -604,30 +641,57 @@ body.menu-open .site-header {
 }
 
 @media (min-width: 960px) {
+  .hero {
+    min-height: max(720px, 100svh);
+    grid-template-rows: minmax(0, 1fr) auto;
+    padding-bottom: clamp(28px, 4vh, 48px);
+  }
+  /* Plan à fond perdu sur la droite, du haut de l'écran jusqu'au générique */
+  .hero-portrait {
+    grid-area: auto;
+    position: absolute;
+    inset: 0 0 0 auto;
+    --hero-scale: 1.42;
+    width: 50vw;
+    height: auto;
+    min-height: 0;
+    clip-path: inset(0 0 2px 2px);
+  }
+  .hero-portrait img {
+    object-position: 50% 20%;
+    transform-origin: 92% 24%;
+  }
+  .hero-portrait {
+    --fade-top: linear-gradient(180deg, rgb(0 0 0 / 0.3) 0%, #000 18%);
+    --fade-bottom: linear-gradient(0deg, transparent 0%, rgb(0 0 0 / 0.25) 14%, #000 36%);
+    --fade-side: linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 0.4) 8%, rgb(0 0 0 / 0.85) 18%, #000 30%);
+  }
+  .hero-frame {
+    grid-area: 1 / 1;
+    align-self: center;
+    padding-top: calc(var(--header-h) + 24px);
+  }
+  .hero-title {
+    font-size: clamp(6.5rem, 12.5vw, 13.5rem);
+  }
+  .hero-title em {
+    padding-left: 1em;
+  }
   .hero-grid {
+    grid-area: 2 / 1;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     column-gap: 24px;
     row-gap: 0;
-  }
-  .hero-intro {
-    grid-column: 1 / 8;
-    grid-row: 1;
-  }
-  .hero-portrait {
-    grid-column: 8 / 13;
-    grid-row: 1 / 3;
-    aspect-ratio: 3 / 4;
+    padding-top: 32px;
   }
   .hero-body {
-    grid-column: 1 / 7;
-    grid-row: 2;
-    align-self: end;
+    grid-column: 1 / 6;
   }
   .hero-facts {
     grid-column: 1 / 13;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     column-gap: 24px;
-    margin-top: 72px;
+    margin-top: clamp(40px, 7vh, 72px);
   }
 }
 
@@ -1594,7 +1658,7 @@ body.menu-open .site-header {
   }
 
   .js .hero-title {
-    --d: 350ms;
+    --d: 650ms;
   }
 
   .js .hero-title .w > span {
@@ -1628,6 +1692,32 @@ body.menu-open .site-header {
 
   .js .gallery [data-reveal="mask"] img {
     scale: 1;
+  }
+
+  /* Ouverture du plan d'accueil : une fente qui s'ouvre comme un écran large,
+     pendant que le cadre recule lentement jusqu'au plan serré. */
+  .js .hero-portrait[data-reveal="mask"] {
+    clip-path: inset(50% 0 50% 0);
+    transition: clip-path 1900ms var(--ease-mask) 120ms;
+  }
+
+  .js .hero-portrait[data-reveal="mask"] img {
+    scale: 1.6;
+    transition: scale 4200ms var(--ease) 120ms;
+  }
+
+  .js .hero-portrait[data-reveal="mask"].is-visible {
+    clip-path: inset(0 0 2px 0);
+  }
+
+  .js .hero-portrait[data-reveal="mask"].is-visible img {
+    scale: var(--hero-scale);
+  }
+
+  @media (min-width: 960px) {
+    .js .hero-portrait[data-reveal="mask"].is-visible {
+      clip-path: inset(0 0 2px 2px);
+    }
   }
 
   .js .award-thumb[data-reveal="mask"] {
