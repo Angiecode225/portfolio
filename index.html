@@ -3,26 +3,37 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ange Koffi — Développeuse mobile & web, UX/UI designer</title>
+    <title>Ange Koffi · Développeuse mobile & web, UX/UI designer</title>
     <meta
       name="description"
       content="Portfolio de Koffi Moahiet Ange Laurette, développeuse mobile et web basée à Abidjan. React Native, Expo, UX/UI, produits IA, 4 distinctions en compétition."
     />
-    <meta name="theme-color" content="#0b0a08" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0f0e0c" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f4f0e8" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="dark light" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Ange Koffi — Développeuse mobile & web" />
+    <meta property="og:title" content="Ange Koffi · Développeuse mobile & web" />
     <meta property="og:description" content="Applications mobiles, plateformes web et produits IA conçus depuis Abidjan. Tech Lead chez Comafrique Technologies, cofondatrice de Tchecker." />
-    <meta property="og:image" content="assets/actualite-03.webp" />
+    <meta property="og:image" content="https://portfolio-three-woad-cq73rkmt11.vercel.app/assets/actualite-03.webp" />
     <meta property="og:locale" content="fr_FR" />
     <meta name="twitter:card" content="summary_large_image" />
+
+    <script>
+      (() => {
+        try {
+          const t = localStorage.getItem("ak-theme");
+          if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+        } catch {}
+        document.documentElement.classList.add("js");
+      })();
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300..600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
     <link rel="preload" as="image" href="assets/actualite-03.webp" />
@@ -43,380 +54,297 @@
     </script>
   </head>
   <body>
-    <!-- Preloader -->
-    <div class="loader" data-loader aria-hidden="true">
-      <div class="loader-word">
-        <span>A</span><span>n</span><span>g</span><span>e</span>
-        <span class="loader-space"> </span>
-        <span class="is-italic">K</span><span class="is-italic">o</span><span class="is-italic">f</span><span class="is-italic">f</span><span class="is-italic">i</span>
-      </div>
-      <div class="loader-bar"><i></i></div>
-    </div>
-
-    <div class="cursor-glow" data-cursor aria-hidden="true"></div>
-    <div class="scroll-progress" data-progress aria-hidden="true"></div>
-    <div class="grain" aria-hidden="true"></div>
-
     <a class="skip-link" href="#main">Aller au contenu</a>
 
     <header class="site-header" data-header>
-      <a class="brand" href="#accueil" aria-label="Retour à l'accueil">
-        <span class="brand-mark">AK</span>
-        <span class="brand-name">Ange Koffi</span>
-      </a>
+      <div class="header-inner">
+        <a class="brand" href="#accueil" aria-label="Ange Koffi, retour à l'accueil">Ange Koffi</a>
 
-      <nav class="main-nav" data-nav aria-label="Navigation principale">
-        <a href="#apropos" data-nav-link>À propos</a>
-        <a href="#projets" data-nav-link>Projets</a>
-        <a href="#distinctions" data-nav-link>Distinctions</a>
-        <a href="#parcours" data-nav-link>Parcours</a>
-        <a href="#competences" data-nav-link>Stack</a>
-        <a href="#contact" data-nav-link>Contact</a>
-      </nav>
+        <nav class="main-nav" aria-label="Navigation principale">
+          <a href="#apropos" data-nav-link>À propos</a>
+          <a href="#projets" data-nav-link>Projets</a>
+          <a href="#distinctions" data-nav-link>Distinctions</a>
+          <a href="#parcours" data-nav-link>Parcours</a>
+          <a href="#competences" data-nav-link>Stack</a>
+        </nav>
 
-      <div class="header-actions">
-        <a class="button button-small button-gold" href="#contact">Me contacter</a>
-        <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu" data-nav-toggle>
-          <span></span><span></span>
-        </button>
+        <div class="header-actions">
+          <button class="icon-button" type="button" data-theme-toggle aria-label="Passer en thème clair">
+            <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" /></svg>
+            <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" /></svg>
+          </button>
+          <a class="header-cta" href="#contact"><span class="roll" data-roll>Me contacter</span></a>
+          <button class="icon-button nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu" data-nav-toggle>
+            <span></span><span></span>
+          </button>
+        </div>
       </div>
     </header>
 
-    <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
       <nav aria-label="Navigation mobile">
-        <a href="#apropos" style="--i: 0">À propos</a>
-        <a href="#projets" style="--i: 1">Projets</a>
-        <a href="#distinctions" style="--i: 2">Distinctions</a>
-        <a href="#parcours" style="--i: 3">Parcours</a>
-        <a href="#competences" style="--i: 4">Stack</a>
-        <a href="#contact" style="--i: 5">Contact</a>
+        <a href="#apropos">À propos</a>
+        <a href="#projets">Projets</a>
+        <a href="#distinctions">Distinctions</a>
+        <a href="#parcours">Parcours</a>
+        <a href="#competences">Stack</a>
+        <a href="#contact">Contact</a>
       </nav>
       <div class="mobile-menu-foot">
         <a href="mailto:kange677@gmail.com">kange677@gmail.com</a>
-        <span>Abidjan · Côte d'Ivoire</span>
+        <span>Abidjan, Côte d'Ivoire</span>
       </div>
     </div>
 
     <main id="main">
-      <!-- ============ HERO ============ -->
+      <!-- Accueil -->
       <section class="hero" id="accueil" aria-labelledby="hero-title">
-        <div class="hero-bg" aria-hidden="true">
-          <canvas class="hero-canvas" data-hero-canvas></canvas>
-          <span class="orb orb-a"></span>
-          <span class="orb orb-b"></span>
-          <span class="hero-ghost">AK</span>
-          <div class="hero-marquee"><span>Ange Koffi · Développeuse mobile &amp; web · UX/UI designer · Abidjan · </span><span>Ange Koffi · Développeuse mobile &amp; web · UX/UI designer · Abidjan · </span></div>
-        </div>
-
-        <div class="hero-grid">
-          <div class="hero-content">
-            <p class="eyebrow" data-reveal>
-              <span class="eyebrow-line"></span>
-              Portfolio · Abidjan, Côte d'Ivoire
-            </p>
-            <h1 class="hero-title" id="hero-title" aria-label="Ange Koffi">
-              <span class="line" aria-hidden="true"><span class="word" data-split>Ange</span></span>
-              <span class="line" aria-hidden="true"><em class="shimmer" data-reveal style="--i: 3">Koffi</em></span>
-            </h1>
-            <p class="hero-role" data-reveal style="--i: 3">
-              Développeuse
-              <span class="rotator" data-rotator aria-label="mobile, web, UX/UI, produit">
-                <span class="rotator-track"><span>mobile</span><span>web</span><span>UX/UI</span><span>produit</span><span>mobile</span></span>
-              </span>
-            </p>
-            <p class="hero-lead" data-reveal style="--i: 4">
-              Je transforme des idées en applications mobiles et web qui tiennent la route. Tech Lead chez Comafrique Technologies,
-              cofondatrice de Tchecker et quatre fois primée en compétition, je relie design, code et exécution terrain.
-            </p>
-
-            <div class="hero-actions" data-reveal style="--i: 5">
-              <a class="button button-gold magnetic" href="#projets">
-                Voir mes projets
-                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg>
-              </a>
-              <a class="button button-ghost magnetic" href="assets/CV-Moahiet-Ange-Laurette-KOFFI.pdf" download>
-                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16" /></svg>
-                Télécharger le CV
-              </a>
-            </div>
-
-            <dl class="hero-stats" data-reveal style="--i: 6">
-              <div><dt><span data-count="10">0</span>+</dt><dd>projets livrés</dd></div>
-              <div><dt><span data-count="4">0</span></dt><dd>distinctions</dd></div>
-              <div><dt><span data-count="7">0</span></dt><dd>marques accompagnées</dd></div>
-              <div><dt><span data-count="3">0</span>+</dt><dd>ans d'expérience</dd></div>
-            </dl>
+        <div class="container hero-grid">
+          <div class="hero-intro">
+            <p class="label" data-reveal style="--i: 1">Développeuse mobile &amp; web · UX/UI · Abidjan</p>
+            <h1 class="hero-title" id="hero-title" data-reveal="split" data-split="chars">Ange <em>Koffi</em></h1>
           </div>
 
-          <div class="hero-visual" data-reveal data-tilt style="--i: 2">
-            <div class="portrait-halo" aria-hidden="true"></div>
-            <div class="orbit" aria-hidden="true">
-              <span class="orbit-icon" style="--a: 0deg"><img src="assets/tech/react.svg" alt="" /></span>
-              <span class="orbit-icon" style="--a: 60deg"><img src="assets/tech/expo.svg" alt="" /></span>
-              <span class="orbit-icon" style="--a: 120deg"><img src="assets/tech/figma.svg" alt="" /></span>
-              <span class="orbit-icon" style="--a: 180deg"><img src="assets/tech/nextjs.svg" alt="" /></span>
-              <span class="orbit-icon" style="--a: 240deg"><img src="assets/tech/postgresql.svg" alt="" /></span>
-              <span class="orbit-icon" style="--a: 300deg"><img src="assets/tech/githubactions.svg" alt="" /></span>
-            </div>
-            <div class="portrait-arch" data-parallax="0.04">
-              <img src="assets/actualite-03.webp" alt="Ange Laurette Koffi, en blazer blanc, dans ses bureaux à Abidjan" width="960" height="1280" fetchpriority="high" />
-            </div>
-            <div class="chip chip-a" data-parallax="-0.08">
-              <strong>Tech Lead</strong>
-              <span>Comafrique Technologies</span>
-            </div>
-            <div class="chip chip-b" data-parallax="0.12">
-              <strong>1ʳᵉ place</strong>
-              <span>Miss Hackathon No-Code · AUF</span>
+          <figure class="hero-portrait" data-reveal="mask" data-parallax="48" style="--i: 2">
+            <img src="assets/actualite-03.webp" alt="Ange Laurette Koffi, en blazer blanc, dans ses bureaux à Abidjan" width="960" height="1280" fetchpriority="high" />
+          </figure>
+
+          <div class="hero-body">
+            <p class="hero-lead" data-reveal style="--i: 8">
+              Je conçois et développe des applications mobiles et web qui tiennent la route, de la maquette Figma à la mise en production.
+            </p>
+            <div class="hero-actions" data-reveal style="--i: 10">
+              <a class="button button-primary" href="#projets">
+                <span class="roll" data-roll>Voir les projets</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7" /></svg>
+              </a>
+              <a class="button button-quiet" href="assets/CV-Moahiet-Ange-Laurette-KOFFI.pdf" download>
+                <span class="roll" data-roll>Télécharger le CV</span>
+                <span class="button-note">PDF</span>
+              </a>
             </div>
           </div>
-        </div>
 
-        <a class="scroll-cue" href="#apropos" aria-label="Faire défiler">
-          <span></span>
-        </a>
+          <dl class="hero-facts" data-reveal="group" style="--i: 12">
+            <div class="rule" style="--k: 0"><dt>Tech Lead</dt><dd>Comafrique Technologies</dd></div>
+            <div class="rule" style="--k: 1"><dt>Cofondatrice</dt><dd>Tchecker, legal tech IA</dd></div>
+            <div class="rule" style="--k: 2"><dt>4 distinctions</dt><dd>en compétition depuis 2024</dd></div>
+            <div class="rule" style="--k: 3"><dt>10+ projets</dt><dd>livrés pour 7 marques</dd></div>
+          </dl>
+        </div>
       </section>
 
-      <!-- ============ MARQUEE ============ -->
-      <div class="ticker" aria-hidden="true">
-        <div class="ticker-track">
-          <span>React Native</span><i>✦</i><span>Expo</span><i>✦</i><span>UX/UI design</span><i>✦</i><span>Next.js</span><i>✦</i><span>Figma</span><i>✦</i><span>Fintech</span><i>✦</i><span>Agritech</span><i>✦</i><span>Produits IA</span><i>✦</i><span>Mobilité</span><i>✦</i><span>Civic tech</span><i>✦</i>
-          <span>React Native</span><i>✦</i><span>Expo</span><i>✦</i><span>UX/UI design</span><i>✦</i><span>Next.js</span><i>✦</i><span>Figma</span><i>✦</i><span>Fintech</span><i>✦</i><span>Agritech</span><i>✦</i><span>Produits IA</span><i>✦</i><span>Mobilité</span><i>✦</i><span>Civic tech</span><i>✦</i>
-        </div>
-      </div>
-
-      <!-- ============ ABOUT ============ -->
-      <section class="section about" id="apropos" aria-labelledby="about-title">
+      <!-- À propos -->
+      <section class="section" id="apropos" aria-labelledby="about-title">
         <div class="container">
-          <div class="section-head" data-reveal>
-            <p class="kicker"><span>01</span> À propos</p>
-          </div>
+          <header class="section-head rule" data-reveal="rule">
+            <p class="label">À propos</p>
+            <h2 data-split class="statement" id="about-title">
+              Je relie <em>design</em>, <em>code</em> et exécution terrain pour livrer des produits qu'on utilise vraiment.
+            </h2>
+          </header>
 
           <div class="about-grid">
-            <figure class="about-photo" data-reveal>
-              <div class="about-photo-frame">
+            <figure class="about-photo">
+              <div class="frame" data-reveal="mask" data-parallax="32">
                 <img src="assets/about-portrait.jpg" alt="Portrait d'Ange Laurette Koffi, bras croisés, en chemise orange" width="1049" height="1400" loading="lazy" />
               </div>
-              <figcaption>
-                <strong>Koffi Moahiet Ange Laurette</strong>
-                <span>Abidjan · en télétravail pour le monde</span>
-              </figcaption>
+              <figcaption data-reveal style="--i: 4">Koffi Moahiet Ange Laurette, Abidjan</figcaption>
             </figure>
 
             <div class="about-copy">
-              <h2 class="display" id="about-title" data-reveal>
-                Une développeuse qui relie <em>design</em>, <em>code</em> et exécution terrain.
-              </h2>
-              <p data-reveal style="--i: 1">
-                Passionnée par le développement web et mobile, je crée des interfaces interactives avec une attention particulière
-                portée à l'expérience utilisateur. Mes expériences en freelance, en entreprise et en compétition technologique m'ont
-                appris à livrer vite, proprement et avec une vraie logique produit.
+              <p data-reveal>
+                Passionnée par le développement web et mobile, je crée des interfaces avec une attention particulière portée à
+                l'expérience utilisateur. Le freelance, l'entreprise et la compétition technologique m'ont appris à livrer vite,
+                proprement et avec une vraie logique produit.
               </p>
-              <p data-reveal style="--i: 2">
-                J'ai contribué à des applications dans la fintech, la mobilité, l'immobilier, l'agritech et la civic tech. Aujourd'hui
-                Tech Lead mobile et web chez Comafrique Technologies, je pilote des écrans React Native/Expo, l'intégration d'API,
+              <p data-reveal style="--i: 1">
+                J'ai contribué à des applications dans la fintech, la mobilité, l'immobilier, l'agritech et la civic tech. Tech Lead
+                mobile et web chez Comafrique Technologies, je pilote les écrans React Native et Expo, l'intégration d'API,
                 l'authentification et les tests fonctionnels sur des projets clients.
               </p>
 
-              <ul class="pillars" data-reveal style="--i: 3">
-                <li>
-                  <span class="pillar-num">I</span>
-                  <h3>Mobile iOS &amp; Android</h3>
-                  <p>React Native, Expo Router, .NET MAUI. Onboarding, paiement, scanner QR, géolocalisation.</p>
-                </li>
-                <li>
-                  <span class="pillar-num">II</span>
-                  <h3>Web &amp; API</h3>
-                  <p>React, Next.js, Laravel, NestJS. Dashboards, intégration API, authentification, déploiement.</p>
-                </li>
-                <li>
-                  <span class="pillar-num">III</span>
-                  <h3>UX/UI &amp; produit</h3>
-                  <p>Figma, prototypage, identité visuelle, documentation produit et parcours utilisateurs.</p>
-                </li>
-              </ul>
+              <dl class="pillars" data-reveal="group" style="--i: 2">
+                <div class="rule" style="--k: 0">
+                  <dt>Mobile iOS &amp; Android</dt>
+                  <dd>React Native, Expo Router, .NET MAUI. Onboarding, paiement, scanner QR, géolocalisation.</dd>
+                </div>
+                <div class="rule" style="--k: 1">
+                  <dt>Web &amp; API</dt>
+                  <dd>React, Next.js, Laravel, NestJS. Dashboards, intégration d'API, authentification, déploiement.</dd>
+                </div>
+                <div class="rule" style="--k: 2">
+                  <dt>UX/UI &amp; produit</dt>
+                  <dd>Figma, prototypage, identité visuelle, documentation produit et parcours utilisateurs.</dd>
+                </div>
+              </dl>
 
-              <div class="about-traits" data-reveal style="--i: 4">
-                <span>Curiosité</span><span>Rigueur</span><span>Organisation</span><span>Esprit d'équipe</span><span>Français · Anglais</span>
-              </div>
+              <p class="about-languages" data-reveal style="--i: 3">Je travaille en français et en anglais.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ============ PROJECTS ============ -->
-      <section class="section projects" id="projets" aria-labelledby="projects-title">
+      <!-- Projets -->
+      <section class="section" id="projets" aria-labelledby="projects-title">
         <div class="container">
-          <div class="section-head section-head-split" data-reveal>
+          <header class="section-head rule" data-reveal="rule">
+            <p class="label">Projets sélectionnés</p>
             <div>
-              <p class="kicker"><span>02</span> Projets sélectionnés</p>
-              <h2 class="display" id="projects-title">Des produits livrés, <em>vendus</em> et utilisés.</h2>
+              <h2 data-split class="statement" id="projects-title">Des produits livrés, <em>vendus</em> et utilisés.</h2>
+              <p class="section-note">Concours remportés, applications confiées par des structures locales et produits IA portés jusqu'à une vraie utilisation.</p>
             </div>
-            <p class="section-note">
-              Concours remportés, applications confiées par des structures locales, produits IA portés jusqu'à une vraie utilisation.
-            </p>
-          </div>
+          </header>
 
-          <div class="filters" role="tablist" aria-label="Filtrer les projets" data-reveal>
-            <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">Tous</button>
-            <button class="filter" type="button" data-filter="mobile" aria-pressed="false">Mobile</button>
-            <button class="filter" type="button" data-filter="web" aria-pressed="false">Web</button>
-            <button class="filter" type="button" data-filter="ia" aria-pressed="false">IA</button>
+          <div class="filters" role="group" aria-label="Filtrer les projets" data-reveal>
+            <button class="filter" type="button" data-filter="all" aria-pressed="true">Tous <span data-filter-count></span></button>
+            <button class="filter" type="button" data-filter="mobile" aria-pressed="false">Mobile <span data-filter-count></span></button>
+            <button class="filter" type="button" data-filter="web" aria-pressed="false">Web <span data-filter-count></span></button>
+            <button class="filter" type="button" data-filter="ia" aria-pressed="false">IA <span data-filter-count></span></button>
           </div>
 
           <div class="project-grid" data-project-grid>
-            <!-- Featured: TerraNobis -->
-            <article class="project project-wide tilt" data-cat="ia web" data-reveal>
-              <div class="project-media project-media-landscape">
-                <img src="assets/terranobis-home.webp" alt="Page d'accueil de TerraNobis, plateforme agricole alimentée par l'IA" loading="lazy" />
+            <article class="project project-featured" data-cat="ia web">
+              <div data-reveal="mask" class="media media-wide">
+                <img src="assets/terranobis-home.webp" alt="Page d'accueil de TerraNobis, plateforme agricole alimentée par l'IA" width="1018" height="478" loading="lazy" />
               </div>
-              <div class="project-body">
-                <p class="project-meta"><span class="tag tag-gold">Concours Google</span> Agritech · IA</p>
+              <div class="project-body" data-reveal>
+                <p class="project-meta"><span class="project-award">Concours Google</span> Agritech · IA</p>
                 <h3>TerraNobis</h3>
                 <p>
-                  L'avenir de l'agriculture alimenté par l'IA : diagnostic du sol, recommandation de culture et logique marché pour
-                  les producteurs. Dossier produit complet avec vidéo, pitch et note de cadrage.
+                  L'agriculture assistée par l'IA : diagnostic du sol, recommandation de culture et logique de marché pour les
+                  producteurs. Dossier produit complet avec vidéo, pitch et note de cadrage.
                 </p>
-                <ul class="tags"><li>Deep Learning</li><li>Agritech</li><li>Souveraineté alimentaire</li></ul>
-                <div class="project-links">
-                  <a href="https://youtu.be/sI5PkkycXm4" target="_blank" rel="noreferrer">Vidéo <i>↗</i></a>
-                  <a href="https://www.canva.com/design/DAGtqHVgj3g/PuHM5mbzq_e2XTbQEon9PQ/edit?utm_content=DAGtqHVgj3g&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=sharebutton" target="_blank" rel="noreferrer">Présentation <i>↗</i></a>
-                  <a href="https://docs.google.com/document/d/1GQvTjOiBOa8BghHILj4x1uI957lfCB4uRvHmCZtbnLw/edit?usp=sharing" target="_blank" rel="noreferrer">Dossier <i>↗</i></a>
-                </div>
+                <p class="project-stack">Deep learning · Agritech · Souveraineté alimentaire</p>
+                <ul class="project-links">
+                  <li><a href="https://youtu.be/sI5PkkycXm4" target="_blank" rel="noreferrer">Vidéo<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg></a></li>
+                  <li><a href="https://www.canva.com/design/DAGtqHVgj3g/PuHM5mbzq_e2XTbQEon9PQ/edit?utm_content=DAGtqHVgj3g&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=sharebutton" target="_blank" rel="noreferrer">Présentation<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg></a></li>
+                  <li><a href="https://docs.google.com/document/d/1GQvTjOiBOa8BghHILj4x1uI957lfCB4uRvHmCZtbnLw/edit?usp=sharing" target="_blank" rel="noreferrer">Dossier<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg></a></li>
+                </ul>
               </div>
             </article>
 
-            <!-- Tchecker -->
-            <article class="project tilt" data-cat="ia web" data-reveal style="--i: 1">
-              <div class="project-media project-media-logo">
-                <img src="assets/tchecker.webp" alt="Visuel Tchecker, outil d'analyse de contrats par IA" loading="lazy" />
+            <article class="project project-featured project-featured-reverse" data-cat="ia web">
+              <div data-reveal="mask" class="media media-mark" style="--panel: #0a0a0a">
+                <img src="assets/tchecker.webp" alt="Visuel Tchecker, outil d'analyse de contrats par IA" width="512" height="512" loading="lazy" />
               </div>
-              <div class="project-body">
-                <p class="project-meta"><span class="tag tag-gold">Cofondatrice</span> Legal tech · IA</p>
+              <div class="project-body" data-reveal>
+                <p class="project-meta"><span class="project-award">Cofondatrice</span> Legal tech · IA</p>
                 <h3>Tchecker</h3>
-                <p>Ne signez plus jamais dans le noir : analyse de contrats par intelligence artificielle, site public et blog produit.</p>
-                <ul class="tags"><li>IA</li><li>Laravel Cloud</li><li>Blog</li></ul>
-                <div class="project-links">
-                  <a href="https://contracttchecker.laravel.cloud" target="_blank" rel="noreferrer">Site <i>↗</i></a>
-                  <a href="https://tcheckerblog.blogspot.com/2026/04/ne-signez-plus-jamais-dans-le-noir.html" target="_blank" rel="noreferrer">Blog <i>↗</i></a>
-                </div>
+                <p>Ne plus jamais signer dans le noir : analyse de contrats par intelligence artificielle, site public et blog produit.</p>
+                <p class="project-stack">IA · Laravel Cloud · Blog</p>
+                <ul class="project-links">
+                  <li><a href="https://contracttchecker.laravel.cloud" target="_blank" rel="noreferrer">Site<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg></a></li>
+                  <li><a href="https://tcheckerblog.blogspot.com/2026/04/ne-signez-plus-jamais-dans-le-noir.html" target="_blank" rel="noreferrer">Blog<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg></a></li>
+                </ul>
               </div>
             </article>
 
-            <!-- LeeCar -->
-            <article class="project project-phone tilt" data-cat="mobile" data-reveal style="--i: 2">
-              <div class="phone-stage">
-                <div class="phone"><div class="phone-screen"><img src="assets/leecar-app.webp" alt="Écran d'accueil de l'application LeeCar" loading="lazy" /></div></div>
+            <article class="project" data-cat="mobile" style="--i: 1">
+              <div data-reveal="mask" class="media media-screen">
+                <img src="assets/leecar-app.webp" alt="Écran d'accueil de l'application LeeCar" width="820" height="1822" loading="lazy" />
               </div>
-              <div class="project-body">
+              <div class="project-body" data-reveal>
                 <p class="project-meta">Mobile · Services auto</p>
                 <h3>LeeCar</h3>
-                <p>Écrans, parcours services auto, authentification et géolocalisation d'une app livrée et vendue.</p>
-                <ul class="tags"><li>React Native</li><li>Expo</li><li>Géolocalisation</li></ul>
+                <p>Écrans, parcours de services auto, authentification et géolocalisation d'une application livrée et vendue.</p>
+                <p class="project-stack">React Native · Expo · Géolocalisation</p>
               </div>
             </article>
 
-            <!-- LeeCar Merchant -->
-            <article class="project project-phone tilt" data-cat="mobile" data-reveal style="--i: 3">
-              <div class="phone-stage">
-                <div class="phone"><div class="phone-screen"><img src="assets/leecar-merchant-app.webp" alt="Écran d'accueil de l'application LeeCar Merchant" loading="lazy" /></div></div>
+            <article class="project" data-cat="mobile" style="--i: 2">
+              <div data-reveal="mask" class="media media-screen">
+                <img src="assets/leecar-merchant-app.webp" alt="Écran d'accueil de l'application LeeCar Merchant" width="540" height="1200" loading="lazy" />
               </div>
-              <div class="project-body">
+              <div class="project-body" data-reveal>
                 <p class="project-meta">Mobile · Partenaires</p>
                 <h3>LeeCar Merchant</h3>
-                <p>La plateforme des partenaires : sessions, scanner QR, revenus et pilotage de l'activité marchande.</p>
-                <ul class="tags"><li>Expo Router</li><li>QR</li><li>Dashboard</li></ul>
+                <p>L'application des partenaires : sessions, scanner QR, revenus et pilotage de l'activité marchande.</p>
+                <p class="project-stack">Expo Router · QR · Dashboard</p>
               </div>
             </article>
 
-            <!-- Ehoo -->
-            <article class="project project-phone tilt" data-cat="mobile" data-reveal style="--i: 4">
-              <div class="phone-stage">
-                <div class="phone"><div class="phone-screen"><img src="assets/ehoo-app.webp" alt="Écran d'onboarding de l'application Ehoo" loading="lazy" /></div></div>
+            <article class="project" data-cat="mobile">
+              <div data-reveal="mask" class="media media-screen">
+                <img src="assets/ehoo-app.webp" alt="Écran d'onboarding de l'application Ehoo" width="540" height="1200" loading="lazy" />
               </div>
-              <div class="project-body">
+              <div class="project-body" data-reveal>
                 <p class="project-meta">Mobile · Fintech</p>
                 <h3>Ehoo</h3>
-                <p>Parcours de crédit mobile : onboarding, accès compte et demande de prêt en toute sérénité.</p>
-                <ul class="tags"><li>Fintech</li><li>Onboarding</li><li>Mobile</li></ul>
+                <p>Parcours de crédit mobile : onboarding, accès au compte et demande de prêt.</p>
+                <p class="project-stack">Fintech · Onboarding · Mobile</p>
               </div>
             </article>
 
-            <!-- SHTY -->
-            <article class="project project-phone tilt" data-cat="mobile" data-reveal style="--i: 5">
-              <div class="phone-stage">
-                <div class="phone"><div class="phone-screen"><img src="assets/shty-app.webp" alt="Écran de connexion SHTY Épargne Voyage" loading="lazy" /></div></div>
+            <article class="project" data-cat="mobile" style="--i: 1">
+              <div data-reveal="mask" class="media media-screen">
+                <img src="assets/shty-app.webp" alt="Écran de connexion SHTY Épargne Voyage" width="540" height="1200" loading="lazy" />
               </div>
-              <div class="project-body">
+              <div class="project-body" data-reveal>
                 <p class="project-meta">Mobile · Épargne voyage</p>
                 <h3>SHTY</h3>
-                <p>Écrans d'accès, inscription et identité visuelle d'une app d'épargne dédiée au voyage.</p>
-                <ul class="tags"><li>Auth</li><li>Identité visuelle</li><li>Épargne</li></ul>
+                <p>Écrans d'accès, inscription et identité visuelle d'une application d'épargne dédiée au voyage.</p>
+                <p class="project-stack">Authentification · Identité visuelle · Épargne</p>
               </div>
             </article>
 
-            <!-- PDOC -->
-            <article class="project project-phone tilt" data-cat="mobile" data-reveal style="--i: 6">
-              <div class="phone-stage">
-                <div class="phone"><div class="phone-screen"><img src="assets/pdoc-app.webp" alt="Interface de la Plateforme Digitale des Organisations de la Société Civile" loading="lazy" /></div></div>
+            <article class="project" data-cat="mobile" style="--i: 2">
+              <div data-reveal="mask" class="media media-screen">
+                <img src="assets/pdoc-app.webp" alt="Interface de la Plateforme Digitale des Organisations de la Société Civile" width="540" height="1200" loading="lazy" />
               </div>
-              <div class="project-body">
+              <div class="project-body" data-reveal>
                 <p class="project-meta">Mobile · Civic tech</p>
                 <h3>PDOC</h3>
                 <p>Annuaire, documents, collaboration et profils pour les organisations de la société civile.</p>
-                <ul class="tags"><li>OSC</li><li>Collaboration</li><li>Mobile</li></ul>
+                <p class="project-stack">OSC · Collaboration · Mobile</p>
               </div>
             </article>
 
-            <!-- Immobiznet -->
-            <article class="project project-phone tilt" data-cat="mobile web" data-reveal style="--i: 7">
-              <div class="phone-stage">
-                <div class="phone"><div class="phone-screen"><img src="assets/immobiznet-app.webp" alt="Écran de lancement Immobiznets" loading="lazy" /></div></div>
+            <article class="project" data-cat="mobile web">
+              <div data-reveal="mask" class="media media-screen">
+                <img src="assets/immobiznet-app.webp" alt="Écran de lancement Immobiznet" width="820" height="1822" loading="lazy" />
               </div>
-              <div class="project-body">
+              <div class="project-body" data-reveal>
                 <p class="project-meta">Mobile &amp; web · Immobilier</p>
                 <h3>Immobiznet</h3>
-                <p>Interfaces mobile/web et amélioration des parcours métier d'une solution immobilière.</p>
-                <ul class="tags"><li>Web</li><li>Mobile</li><li>Immobilier</li></ul>
+                <p>Interfaces mobile et web, et amélioration des parcours métier d'une solution immobilière.</p>
+                <p class="project-stack">Web · Mobile · Immobilier</p>
               </div>
             </article>
 
-            <!-- Transconnect -->
-            <article class="project tilt" data-cat="mobile web" data-reveal style="--i: 8">
-              <div class="project-media project-media-logo project-media-red">
-                <img src="assets/transconnect.webp" alt="Logo Transconnect" loading="lazy" />
+            <article class="project" data-cat="mobile web" style="--i: 1">
+              <div data-reveal="mask" class="media media-mark" style="--panel: #111317">
+                <img src="assets/transconnect.webp" alt="Logo Transconnect" width="1100" height="760" loading="lazy" />
               </div>
-              <div class="project-body">
+              <div class="project-body" data-reveal>
                 <p class="project-meta">Mobile &amp; backend · Transport</p>
                 <h3>Transconnect</h3>
-                <p>App Flutter et API NestJS autour des lignes, abonnements, paiements et tableaux de bord.</p>
-                <ul class="tags"><li>Flutter</li><li>NestJS</li><li>API REST</li></ul>
+                <p>Application Flutter et API NestJS autour des lignes, abonnements, paiements et tableaux de bord.</p>
+                <p class="project-stack">Flutter · NestJS · API REST</p>
               </div>
             </article>
 
-            <!-- Technovore -->
-            <article class="project tilt" data-cat="web" data-reveal style="--i: 9">
-              <div class="project-media project-media-landscape">
-                <img src="assets/technovore-dashboard.webp" alt="Dashboard web pour l'optimisation de la gestion de l'eau" loading="lazy" />
+            <article class="project" data-cat="web" style="--i: 2">
+              <div data-reveal="mask" class="media media-wide">
+                <img src="assets/technovore-dashboard.webp" alt="Dashboard web pour l'optimisation de la gestion de l'eau" width="640" height="400" loading="lazy" />
               </div>
-              <div class="project-body">
-                <p class="project-meta"><span class="tag tag-gold">Hackathon</span> Technovore</p>
+              <div class="project-body" data-reveal>
+                <p class="project-meta"><span class="project-award">Hackathon Technovore</span> Impact</p>
                 <h3>Gestion de l'eau en zones rurales</h3>
-                <p>Dashboard et site web orientés suivi terrain et optimisation des ressources naturelles.</p>
-                <ul class="tags"><li>Dashboard</li><li>Web</li><li>Impact</li></ul>
+                <p>Dashboard et site web pour le suivi terrain et l'optimisation des ressources naturelles.</p>
+                <p class="project-stack">Dashboard · Web · Impact</p>
               </div>
             </article>
 
-            <!-- Moov -->
-            <article class="project project-phone tilt" data-cat="mobile" data-reveal style="--i: 10">
-              <div class="phone-stage">
-                <div class="phone phone-crop"><div class="phone-screen"><img src="assets/moov-app.webp" alt="Application mobile développée durant le hackathon Moov" loading="lazy" /></div></div>
+            <article class="project" data-cat="mobile">
+              <div data-reveal="mask" class="media media-screen">
+                <img src="assets/moov-app.webp" alt="Application mobile développée durant le hackathon Moov" width="428" height="908" loading="lazy" />
               </div>
-              <div class="project-body">
-                <p class="project-meta"><span class="tag tag-gold">Hackathon Moov</span> Télécom</p>
+              <div class="project-body" data-reveal>
+                <p class="project-meta"><span class="project-award">Hackathon Moov</span> Télécom</p>
                 <h3>Moov Suggestions</h3>
-                <p>Forfaits appels, data et SMS en un geste : app conçue en équipe, 3ᵉ place et prix spécial du jury.</p>
-                <ul class="tags"><li>Mobile</li><li>Télécom</li><li>Équipe</li></ul>
+                <p>Forfaits appels, data et SMS en un geste : application conçue en équipe, 3ᵉ place et prix spécial du jury.</p>
+                <p class="project-stack">Mobile · Télécom · Travail d'équipe</p>
               </div>
             </article>
           </div>
@@ -424,286 +352,245 @@
         </div>
       </section>
 
-      <!-- ============ TRUST ============ -->
-      <section class="section trust" id="confiance" aria-labelledby="trust-title">
+      <!-- Confiance -->
+      <section class="section section-tight" id="confiance" aria-labelledby="trust-title">
         <div class="container">
-          <div class="section-head" data-reveal>
-            <p class="kicker"><span>03</span> Ils m'ont fait confiance</p>
-            <h2 class="display" id="trust-title">Des marques, apps et organisations qui ont compté sur mon travail.</h2>
-          </div>
-        </div>
-        <div class="logo-marquee" data-reveal aria-label="Entreprises et produits accompagnés">
-          <div class="logo-track">
-            <div class="logo-card"><img src="assets/logos/comafrique.png" alt="Comafrique Technologies" /></div>
-            <div class="logo-card"><img src="assets/logos/yabc.svg" alt="YABC" /></div>
-            <div class="logo-card"><img src="assets/logos/eyaa.png" alt="EYAA" /></div>
-            <div class="logo-card"><img src="assets/logos/ehoo.png" alt="Ehoo" /></div>
-            <div class="logo-card"><img src="assets/logos/shty.png" alt="SHTY" /></div>
-            <div class="logo-card"><img src="assets/logos/pdoc.png" alt="PDOC" /></div>
-            <div class="logo-card"><img src="assets/logos/divin-grace.png" alt="Divin Grace" /></div>
-            <div class="logo-card" aria-hidden="true"><img src="assets/logos/comafrique.png" alt="" /></div>
-            <div class="logo-card" aria-hidden="true"><img src="assets/logos/yabc.svg" alt="" /></div>
-            <div class="logo-card" aria-hidden="true"><img src="assets/logos/eyaa.png" alt="" /></div>
-            <div class="logo-card" aria-hidden="true"><img src="assets/logos/ehoo.png" alt="" /></div>
-            <div class="logo-card" aria-hidden="true"><img src="assets/logos/shty.png" alt="" /></div>
-            <div class="logo-card" aria-hidden="true"><img src="assets/logos/pdoc.png" alt="" /></div>
-            <div class="logo-card" aria-hidden="true"><img src="assets/logos/divin-grace.png" alt="" /></div>
-          </div>
+          <header class="section-head rule" data-reveal="rule">
+            <p class="label">Ils m'ont fait confiance</p>
+            <h2 data-split class="statement statement-sm" id="trust-title">Des marques, applications et organisations qui ont compté sur mon travail.</h2>
+          </header>
+          <ul class="logo-grid">
+            <li data-reveal style="--i: 0"><img src="assets/logos/comafrique.png" alt="Comafrique Technologies" loading="lazy" /></li>
+            <li data-reveal style="--i: 1"><img src="assets/logos/yabc.svg" alt="YABC" loading="lazy" /></li>
+            <li data-reveal style="--i: 2"><img src="assets/logos/eyaa.png" alt="EYAA" loading="lazy" /></li>
+            <li data-reveal style="--i: 3"><img src="assets/logos/ehoo.png" alt="Ehoo" loading="lazy" /></li>
+            <li data-reveal style="--i: 4"><img src="assets/logos/shty.png" alt="SHTY" loading="lazy" /></li>
+            <li data-reveal style="--i: 5"><img src="assets/logos/pdoc.png" alt="PDOC" loading="lazy" /></li>
+            <li data-reveal style="--i: 6"><img src="assets/logos/divin-grace.png" alt="Divin Grace" loading="lazy" /></li>
+          </ul>
         </div>
       </section>
 
-      <!-- ============ AWARDS ============ -->
-      <section class="section awards" id="distinctions" aria-labelledby="awards-title">
+      <!-- Distinctions -->
+      <section class="section" id="distinctions" aria-labelledby="awards-title">
         <div class="container">
-          <div class="section-head section-head-split" data-reveal>
+          <header class="section-head rule" data-reveal="rule">
+            <p class="label">Distinctions</p>
             <div>
-              <p class="kicker"><span>04</span> Distinctions</p>
-              <h2 class="display" id="awards-title">Des projets <em>reconnus</em> en compétition.</h2>
+              <h2 data-split class="statement" id="awards-title">Des projets <em>reconnus</em> en compétition.</h2>
+              <p class="section-note">Quarante-huit heures de formation, de conception et de pitch, devant des jurys, avec des solutions pensées pour l'impact.</p>
             </div>
-            <p class="section-note">48 heures de formation, conception et pitch. Des équipes, des jurys, et des solutions pensées pour l'impact.</p>
-          </div>
+          </header>
 
-          <ol class="award-list" data-award-list>
-            <li class="award" data-reveal data-image="assets/auf-award.webp">
-              <span class="award-index">01</span>
-              <div class="award-thumb"><img src="assets/auf-award.webp" alt="Remise du chèque du 1er prix Miss Hackathon No-Code AUF 2024" loading="lazy" /></div>
+          <ol class="award-list">
+            <li class="award rule" data-reveal>
+              <p class="award-rank"><em>1ʳᵉ</em> place</p>
               <div class="award-body">
                 <h3>Miss Hackathon No-Code &amp; IA 2024</h3>
                 <p>Agence Universitaire de la Francophonie</p>
               </div>
-              <span class="award-rank"><em>1ʳᵉ</em> place</span>
+              <img data-reveal="mask" class="award-thumb" src="assets/auf-award.webp" alt="Remise du chèque du 1er prix Miss Hackathon No-Code AUF 2024" width="713" height="960" loading="lazy" />
             </li>
-            <li class="award" data-reveal data-image="assets/femall-stage.webp" style="--i: 1">
-              <span class="award-index">02</span>
-              <div class="award-thumb"><img src="assets/femall-stage.webp" alt="Remise de prix FEMAll 4 sur scène" loading="lazy" /></div>
+            <li class="award rule" data-reveal>
+              <p class="award-rank"><em>1ʳᵉ</em> place</p>
               <div class="award-body">
-                <h3>FEMAll 4 · Concours de pitch</h3>
+                <h3>FEMAll 4, concours de pitch</h3>
                 <p>Lampadaires intelligents éco-responsables</p>
               </div>
-              <span class="award-rank"><em>1ʳᵉ</em> place</span>
+              <img data-reveal="mask" class="award-thumb" src="assets/femall-stage.webp" alt="Remise de prix FEMAll 4 sur scène" width="1100" height="825" loading="lazy" />
             </li>
-            <li class="award" data-reveal data-image="assets/jepen-award.webp" style="--i: 2">
-              <span class="award-index">03</span>
-              <div class="award-thumb"><img src="assets/jepen-award.webp" alt="Remise de prix JEPEN 2024" loading="lazy" /></div>
+            <li class="award rule" data-reveal>
+              <p class="award-rank"><em>3</em> prix</p>
               <div class="award-body">
                 <h3>JEPEN 2024</h3>
-                <p>Meilleure innovation mobile · Prix spécial du parrain · 3 distinctions</p>
+                <p>Meilleure innovation mobile et prix spécial du parrain, trois distinctions au total</p>
               </div>
-              <span class="award-rank"><em>×3</em> prix</span>
+              <img data-reveal="mask" class="award-thumb" src="assets/jepen-award.webp" alt="Remise de prix JEPEN 2024" width="1100" height="825" loading="lazy" />
             </li>
-            <li class="award" data-reveal data-image="assets/auf-team.webp" style="--i: 3">
-              <span class="award-index">04</span>
-              <div class="award-thumb"><img src="assets/auf-team.webp" alt="Équipe en plein travail pendant un hackathon" loading="lazy" /></div>
+            <li class="award rule" data-reveal>
+              <p class="award-rank"><em>3ᵉ</em> place</p>
               <div class="award-body">
                 <h3>Hackathon Moov Africa</h3>
-                <p>Application mobile développée en équipe</p>
+                <p>Application mobile développée en équipe, prix spécial du jury</p>
               </div>
-              <span class="award-rank"><em>3ᵉ</em> + prix du jury</span>
+              <img data-reveal="mask" class="award-thumb" src="assets/auf-team.webp" alt="Équipe en plein travail pendant un hackathon" width="1080" height="608" loading="lazy" />
             </li>
           </ol>
-          <div class="award-preview" data-award-preview aria-hidden="true"><img src="" alt="" /></div>
         </div>
       </section>
 
-      <!-- ============ GALLERY ============ -->
-      <section class="section gallery" aria-labelledby="gallery-title">
+      <!-- Coulisses -->
+      <section class="section section-tight" aria-labelledby="gallery-title">
         <div class="container">
-          <div class="section-head section-head-split" data-reveal>
-            <div>
-              <p class="kicker"><span>05</span> Dans les coulisses</p>
-              <h2 class="display" id="gallery-title">Présence terrain, posture produit, ambition tech.</h2>
-            </div>
-            <p class="section-note">Plus de responsabilités, plus de visibilité, la même envie de construire des solutions utiles.</p>
-          </div>
-        </div>
-        <div class="gallery-strip" data-reveal>
-          <div class="gallery-track">
-            <figure><img src="assets/actualite-01.webp" alt="Ange Laurette Koffi debout dans ses bureaux" /><figcaption>Bureaux · Vridi</figcaption></figure>
-            <figure><img src="assets/actualite-02.webp" alt="Ange Laurette Koffi en tenue professionnelle" /><figcaption>Posture produit</figcaption></figure>
-            <figure><img src="assets/auf-team.webp" alt="Équipe en plein travail pendant un hackathon" /><figcaption>Hackathon · Entreprendre son avenir</figcaption></figure>
-            <figure><img src="assets/actualite-04.webp" alt="Ange Laurette Koffi en contexte professionnel" /><figcaption>Au bureau</figcaption></figure>
-            <figure><img src="assets/moov-flow.webp" alt="Écran de l'application Moov conçue en hackathon" /><figcaption>Prototype Moov</figcaption></figure>
-            <figure aria-hidden="true"><img src="assets/actualite-01.webp" alt="" /><figcaption>Bureaux · Vridi</figcaption></figure>
-            <figure aria-hidden="true"><img src="assets/actualite-02.webp" alt="" /><figcaption>Posture produit</figcaption></figure>
-            <figure aria-hidden="true"><img src="assets/auf-team.webp" alt="" /><figcaption>Hackathon · Entreprendre son avenir</figcaption></figure>
-            <figure aria-hidden="true"><img src="assets/actualite-04.webp" alt="" /><figcaption>Au bureau</figcaption></figure>
-            <figure aria-hidden="true"><img src="assets/moov-flow.webp" alt="" /><figcaption>Prototype Moov</figcaption></figure>
+          <header class="section-head rule" data-reveal="rule">
+            <p class="label">Dans les coulisses</p>
+            <h2 data-split class="statement statement-sm" id="gallery-title">Présence terrain, posture produit, ambition tech.</h2>
+          </header>
+          <div class="gallery">
+            <figure data-reveal="mask" style="--i: 0; --ar: 960 / 1280"><img src="assets/actualite-01.webp" alt="Ange Laurette Koffi debout dans ses bureaux" width="960" height="1280" loading="lazy" /><figcaption>Bureaux, Vridi</figcaption></figure>
+            <figure data-reveal="mask" style="--i: 1; --ar: 623 / 937"><img src="assets/actualite-02.webp" alt="Ange Laurette Koffi en tenue professionnelle" width="623" height="937" loading="lazy" /><figcaption>Posture produit</figcaption></figure>
+            <figure class="gallery-wide" data-reveal="mask" style="--i: 2; --ar: 1080 / 608"><img src="assets/auf-team.webp" alt="Équipe en plein travail pendant un hackathon" width="1080" height="608" loading="lazy" /><figcaption>Hackathon Entreprendre son avenir</figcaption></figure>
+            <figure data-reveal="mask" style="--i: 3; --ar: 960 / 1280"><img src="assets/actualite-04.webp" alt="Ange Laurette Koffi en contexte professionnel" width="960" height="1280" loading="lazy" /><figcaption>Au bureau</figcaption></figure>
           </div>
         </div>
       </section>
 
-      <!-- ============ EXPERIENCE ============ -->
-      <section class="section experience" id="parcours" aria-labelledby="experience-title">
-        <div class="container experience-grid">
-          <div class="experience-sticky" data-reveal>
-            <p class="kicker"><span>06</span> Parcours</p>
-            <h2 class="display" id="experience-title">Freelance, entreprise, <em>compétition.</em></h2>
-            <p class="section-note">Trois terrains d'apprentissage qui m'ont appris à livrer vite, proprement et avec une vraie logique produit.</p>
-            <div class="edu">
-              <h3>Formation</h3>
-              <ul>
-                <li><span>Depuis 2024</span><strong>Licence Développement d'Application E-service</strong><em>Université Virtuelle de Côte d'Ivoire</em></li>
-                <li><span>2019</span><strong>Baccalauréat D</strong><em>Jules Ronsard 2, Abidjan</em></li>
-              </ul>
+      <!-- Parcours -->
+      <section class="section" id="parcours" aria-labelledby="experience-title">
+        <div class="container">
+          <header class="section-head rule" data-reveal="rule">
+            <p class="label">Parcours</p>
+            <div>
+              <h2 data-split class="statement" id="experience-title">Freelance, entreprise, <em>compétition</em>.</h2>
+              <p class="section-note">Trois terrains qui m'ont appris à livrer vite, proprement et avec une vraie logique produit.</p>
             </div>
-          </div>
+          </header>
 
-          <ol class="timeline">
-            <li class="timeline-item" data-reveal>
-              <time>Depuis avril 2025</time>
-              <div>
-                <h3>Tech Lead · Développeuse mobile &amp; web</h3>
-                <p class="where">Comafrique Technologies · Vridi</p>
-                <p>Écrans React Native/Expo, intégration d'API, authentification, correction UI/UX, tests fonctionnels et amélioration des parcours utilisateurs sur des projets clients.</p>
-                <ul class="tags"><li>React Native</li><li>Expo</li><li>Tech Lead</li></ul>
+          <ol class="rows">
+            <li class="row rule" data-reveal>
+              <p class="row-date">Depuis avril 2025</p>
+              <div class="row-body">
+                <h3>Tech Lead, développeuse mobile &amp; web</h3>
+                <p class="row-where">Comafrique Technologies, Vridi</p>
+                <p>Écrans React Native et Expo, intégration d'API, authentification, corrections UI/UX, tests fonctionnels et amélioration des parcours utilisateurs sur des projets clients.</p>
               </div>
             </li>
-            <li class="timeline-item" data-reveal style="--i: 1">
-              <time>Depuis 2024</time>
-              <div>
+            <li class="row rule" data-reveal>
+              <p class="row-date">Depuis 2024</p>
+              <div class="row-body">
                 <h3>Développeuse mobile, web &amp; UX/UI</h3>
-                <p class="where">Freelance · En ligne</p>
-                <p>Conception de solutions digitales pour startups et projets indépendants : Tchecker, LeeCar, Ehoo, SHTY, Immobiznet, Transconnect, MEGA, Eyaa, Leela-homes et TerraNobis.</p>
-                <ul class="tags"><li>Design d'interface</li><li>Intégration</li><li>Supports produit</li></ul>
+                <p class="row-where">Freelance, en ligne</p>
+                <p>Conception de solutions digitales pour des startups et des projets indépendants : Tchecker, LeeCar, Ehoo, SHTY, Immobiznet, Transconnect, MEGA, Eyaa, Leela-homes et TerraNobis.</p>
               </div>
             </li>
-            <li class="timeline-item" data-reveal style="--i: 2">
-              <time>2023 – 2024</time>
-              <div>
-                <h3>Développeuse d'application web</h3>
-                <p class="where">SGDIS</p>
+            <li class="row rule" data-reveal>
+              <p class="row-date">2023 – 2024</p>
+              <div class="row-body">
+                <h3>Développeuse d'applications web</h3>
+                <p class="row-where">SGDIS</p>
                 <p>Développement de solutions web en ligne et contribution aux interfaces métiers.</p>
               </div>
             </li>
-            <li class="timeline-item" data-reveal style="--i: 3">
-              <time>2022 – 2023</time>
-              <div>
-                <h3>Développeuse web · AMA Dr. DAGRI</h3>
-                <p class="where">SGDIS</p>
+            <li class="row rule" data-reveal>
+              <p class="row-date">2022 – 2023</p>
+              <div class="row-body">
+                <h3>Développeuse web, AMA Dr. DAGRI</h3>
+                <p class="row-where">SGDIS</p>
                 <p>Développement d'une solution en ligne pour AMA &amp; Développement.</p>
               </div>
             </li>
           </ol>
+
+          <h3 class="subhead" data-reveal>Formation</h3>
+          <ol class="rows">
+            <li class="row rule" data-reveal>
+              <p class="row-date">Depuis 2024</p>
+              <div class="row-body">
+                <h3>Licence Développement d'Application E-service</h3>
+                <p class="row-where">Université Virtuelle de Côte d'Ivoire</p>
+              </div>
+            </li>
+            <li class="row rule" data-reveal>
+              <p class="row-date">2019</p>
+              <div class="row-body">
+                <h3>Baccalauréat D</h3>
+                <p class="row-where">Jules Ronsard 2, Abidjan</p>
+              </div>
+            </li>
+          </ol>
         </div>
       </section>
 
-      <!-- ============ SKILLS ============ -->
-      <section class="section skills" id="competences" aria-labelledby="skills-title">
+      <!-- Stack -->
+      <section class="section" id="competences" aria-labelledby="skills-title">
         <div class="container">
-          <div class="section-head section-head-split" data-reveal>
+          <header class="section-head rule" data-reveal="rule">
+            <p class="label">Stack &amp; outils</p>
             <div>
-              <p class="kicker"><span>07</span> Stack &amp; outils</p>
-              <h2 class="display" id="skills-title">Ce que j'utilise pour <em>livrer.</em></h2>
+              <h2 data-split class="statement" id="skills-title">Ce que j'utilise pour <em>livrer</em>.</h2>
+              <p class="section-note">Architecture d'application, intégration d'API, prototypage, tests, déploiement et documentation produit.</p>
             </div>
-            <p class="section-note">Déploiement, tests, architecture d'application, prototypage, intégration API et documentation produit.</p>
-          </div>
+          </header>
 
-          <div class="skills-grid">
-            <article class="skill-group" data-reveal>
+          <div class="skills">
+            <div class="skill-group rule" data-reveal style="--i: 0">
               <h3>Mobile &amp; front-end</h3>
-              <ul>
-                <li><img src="assets/tech/react.svg" alt="" /><span>React Native</span></li>
-                <li><img src="assets/tech/expo.svg" alt="" /><span>Expo</span></li>
-                <li><img src="assets/tech/react.svg" alt="" /><span>React.js</span></li>
-                <li><img src="assets/tech/nextjs.svg" alt="" /><span>Next.js</span></li>
-                <li><img src="assets/tech/dotnet.svg" alt="" /><span>.NET MAUI</span></li>
-              </ul>
-            </article>
-            <article class="skill-group" data-reveal style="--i: 1">
-              <h3>Design &amp; produit</h3>
-              <ul>
-                <li><img src="assets/tech/figma.svg" alt="" /><span>Figma</span></li>
-                <li><img src="assets/tech/ui.svg" alt="" /><span>UX/UI design</span></li>
-                <li><img src="assets/tech/logo-design.svg" alt="" /><span>Identité &amp; logo</span></li>
-                <li><img src="assets/tech/lowcode.svg" alt="" /><span>Prototypage no-code</span></li>
-              </ul>
-            </article>
-            <article class="skill-group" data-reveal style="--i: 2">
-              <h3>Back-end, data &amp; DevOps</h3>
-              <ul>
-                <li><img src="assets/tech/postgresql.svg" alt="" /><span>PostgreSQL</span></li>
-                <li><img src="assets/tech/sqlite.svg" alt="" /><span>SQLite</span></li>
-                <li><img src="assets/tech/socketio.svg" alt="" /><span>Socket.IO</span></li>
-                <li><img src="assets/tech/postman.svg" alt="" /><span>Postman</span></li>
-                <li><img src="assets/tech/githubactions.svg" alt="" /><span>GitHub Actions</span></li>
-                <li><img src="assets/tech/gitlab.svg" alt="" /><span>GitLab CI</span></li>
-              </ul>
-            </article>
-          </div>
-
-          <div class="skill-cloud" data-reveal style="--i: 3" aria-label="Autres technologies">
-            <span>TypeScript</span><span>Redux</span><span>Axios</span><span>Laravel</span><span>NestJS</span><span>Flutter</span><span>API REST</span><span>Tests fonctionnels</span><span>Déploiement</span><span>Architecture d'application</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ REFERENCES ============ -->
-      <section class="section references" id="references" aria-labelledby="references-title">
-        <div class="container">
-          <div class="section-head section-head-split" data-reveal>
-            <div>
-              <p class="kicker"><span>08</span> Références</p>
-              <h2 class="display" id="references-title">Ils peuvent témoigner.</h2>
+              <ul><li>React Native</li><li>Expo</li><li>React</li><li>Next.js</li><li>Redux</li><li>Axios</li><li>.NET MAUI</li><li>Flutter</li></ul>
             </div>
-            <p class="section-note">Sérieux, apprentissage rapide et implication sur les projets : des personnes qui l'ont vu de près.</p>
-          </div>
-
-          <div class="reference-grid">
-            <article class="reference" data-reveal>
-              <span class="reference-initial">RG</span>
-              <h3>Rodrigue Guedeu</h3>
-              <p>Community Management · SGDIS</p>
-              <a href="mailto:Guedeuglabarodrigue@gmail.com">Guedeuglabarodrigue@gmail.com</a>
-            </article>
-            <article class="reference" data-reveal style="--i: 1">
-              <span class="reference-initial">AB</span>
-              <h3>M. Aboulaye</h3>
-              <p>CEO · IOT Ivoire</p>
-              <span class="reference-plain">contact.iot-ivoire.com</span>
-            </article>
-            <article class="reference" data-reveal style="--i: 2">
-              <span class="reference-initial">NK</span>
-              <h3>N'Guess Kouame</h3>
-              <p>CEO · ImmOver</p>
-              <a href="mailto:devdodo225@gmail.com">devdodo225@gmail.com</a>
-            </article>
-            <article class="reference" data-reveal style="--i: 3">
-              <span class="reference-initial">MA</span>
-              <h3>Muhamad Mujibu Adebayo</h3>
-              <p>Édupreneur · Start Up Catalyst &amp; FabManager</p>
-              <a href="mailto:muhamad.adebayo@uvci.edu.ci">muhamad.adebayo@uvci.edu.ci</a>
-            </article>
+            <div class="skill-group rule" data-reveal style="--i: 1">
+              <h3>Design &amp; produit</h3>
+              <ul><li>Figma</li><li>UX/UI design</li><li>Identité &amp; logo</li><li>Prototypage no-code</li></ul>
+            </div>
+            <div class="skill-group rule" data-reveal style="--i: 2">
+              <h3>Back-end &amp; données</h3>
+              <ul><li>Laravel</li><li>NestJS</li><li>PostgreSQL</li><li>SQLite</li><li>Socket.IO</li><li>API REST</li></ul>
+            </div>
+            <div class="skill-group rule" data-reveal style="--i: 3">
+              <h3>Qualité &amp; livraison</h3>
+              <ul><li>TypeScript</li><li>Postman</li><li>Tests fonctionnels</li><li>GitHub Actions</li><li>GitLab CI</li></ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ============ CONTACT ============ -->
-      <section class="section contact" id="contact" aria-labelledby="contact-title">
-        <div class="container contact-inner">
-          <p class="kicker" data-reveal><span>09</span> Contact</p>
-          <h2 class="display display-xl" id="contact-title" data-reveal style="--i: 1">
-            Un projet mobile ou web<br />à <em>concrétiser&nbsp;?</em>
-          </h2>
+      <!-- Références -->
+      <section class="section" id="references" aria-labelledby="references-title">
+        <div class="container">
+          <header class="section-head rule" data-reveal="rule">
+            <p class="label">Références</p>
+            <div>
+              <h2 data-split class="statement" id="references-title">Ils peuvent témoigner.</h2>
+              <p class="section-note">Sérieux, apprentissage rapide et implication sur les projets, par des personnes qui l'ont vu de près.</p>
+            </div>
+          </header>
+
+          <ul class="references">
+            <li class="rule" data-reveal style="--i: 0">
+              <h3>Rodrigue Guedeu</h3>
+              <p>Community management, SGDIS</p>
+              <a href="mailto:Guedeuglabarodrigue@gmail.com">Guedeuglabarodrigue@gmail.com</a>
+            </li>
+            <li class="rule" data-reveal style="--i: 1">
+              <h3>M. Aboulaye</h3>
+              <p>CEO, IOT Ivoire</p>
+              <span>contact.iot-ivoire.com</span>
+            </li>
+            <li class="rule" data-reveal style="--i: 2">
+              <h3>N'Guess Kouame</h3>
+              <p>CEO, ImmOver</p>
+              <a href="mailto:devdodo225@gmail.com">devdodo225@gmail.com</a>
+            </li>
+            <li class="rule" data-reveal style="--i: 3">
+              <h3>Muhamad Mujibu Adebayo</h3>
+              <p>Édupreneur, Start Up Catalyst &amp; FabManager</p>
+              <a href="mailto:muhamad.adebayo@uvci.edu.ci">muhamad.adebayo@uvci.edu.ci</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <p class="label" data-reveal>Contact</p>
+          <h2 class="contact-title" id="contact-title" data-reveal="split" data-split>Un projet mobile ou web à <em>concrétiser</em>&nbsp;?</h2>
           <p class="contact-lead" data-reveal style="--i: 2">
-            Disponible pour des missions en télétravail : développement mobile, web, UX/UI et prototypage. Réponse sous 48 h.
+            Disponible pour des missions en télétravail : développement mobile et web, UX/UI et prototypage. Réponse sous 48 heures.
           </p>
 
-          <div class="contact-actions" data-reveal style="--i: 3">
-            <a class="button button-gold button-large magnetic" href="mailto:kange677@gmail.com">
-              kange677@gmail.com
-              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg>
-            </a>
-            <button class="button button-ghost button-large magnetic" type="button" data-copy="kange677@gmail.com">
+          <div class="contact-mail" data-reveal style="--i: 3">
+            <a class="contact-address" href="mailto:kange677@gmail.com">kange677@gmail.com</a>
+            <button class="button button-quiet" type="button" data-copy="kange677@gmail.com">
               <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2" /><path d="M5 15V5a1 1 0 0 1 1-1h10" /></svg>
-              <span data-copy-label>Copier l'email</span>
+              <span data-copy-label>Copier l'adresse</span>
             </button>
           </div>
 
-          <ul class="contact-links" data-reveal style="--i: 4">
-            <li><a href="tel:+2250779783286">+225 07 79 78 32 86</a></li>
-            <li><a href="https://github.com/Angiecode225" target="_blank" rel="noreferrer">GitHub <i>↗</i></a></li>
-            <li><a href="https://www.linkedin.com/in/ange-koffi-481335338" target="_blank" rel="noreferrer">LinkedIn <i>↗</i></a></li>
-            <li><a href="assets/CV-Moahiet-Ange-Laurette-KOFFI.pdf" download>CV (PDF) <i>↓</i></a></li>
+          <ul class="contact-links" data-reveal="group" style="--i: 4">
+            <li class="rule" style="--k: 0"><a href="tel:+2250779783286"><span>Téléphone</span>+225 07 79 78 32 86</a></li>
+            <li class="rule" style="--k: 1"><a href="https://www.linkedin.com/in/ange-koffi-481335338" target="_blank" rel="noreferrer"><span>LinkedIn</span>Ange Koffi</a></li>
+            <li class="rule" style="--k: 2"><a href="https://github.com/Angiecode225" target="_blank" rel="noreferrer"><span>GitHub</span>Angiecode225</a></li>
+            <li class="rule" style="--k: 3"><a href="assets/CV-Moahiet-Ange-Laurette-KOFFI.pdf" download><span>CV</span>Télécharger le PDF</a></li>
           </ul>
         </div>
       </section>
@@ -711,9 +598,9 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>© <span data-year>2026</span> Koffi Moahiet Ange Laurette · Abidjan</p>
-        <p class="footer-time">Heure locale · <time data-local-time>--:--</time> GMT</p>
-        <a class="to-top" href="#accueil">Retour en haut <i>↑</i></a>
+        <p>© <span data-year>2026</span> Koffi Moahiet Ange Laurette</p>
+        <p>Abidjan, <time data-local-time>--:--</time> GMT</p>
+        <a href="#accueil">Retour en haut</a>
       </div>
     </footer>
 
