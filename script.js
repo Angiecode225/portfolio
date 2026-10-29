@@ -204,7 +204,9 @@
     // on observe son parent à sa place.
     const targets = new Map();
     revealEls.forEach((el) => {
-      const target = el.dataset.reveal === "mask" ? el.parentElement : el;
+      let target = el.dataset.reveal === "mask" ? el.parentElement : el;
+      // Un parent en display: contents n'a pas de boîte et ne croise jamais l'écran.
+      while (target.parentElement && getComputedStyle(target).display === "contents") target = target.parentElement;
       if (!targets.has(target)) targets.set(target, []);
       targets.get(target).push(el);
     });

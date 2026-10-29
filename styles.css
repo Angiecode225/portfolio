@@ -542,7 +542,7 @@ body.menu-open .site-header {
   grid-area: 1 / 1;
   position: relative;
   z-index: -1;
-  --hero-scale: 1.4;
+  --hero-scale: 1.08;
   height: min(86svh, 760px);
   min-height: 520px;
   /* Le dernier rang de pixels échappe parfois au masque dans Chrome :
@@ -557,8 +557,8 @@ body.menu-open .site-header {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 18%;
-  transform-origin: 80% 22%;
+  object-position: 58% 30%;
+  transform-origin: 60% 30%;
   scale: var(--hero-scale);
   filter: saturate(0.86) contrast(1.06);
 }
@@ -651,15 +651,15 @@ body.menu-open .site-header {
     grid-area: auto;
     position: absolute;
     inset: 0 0 0 auto;
-    --hero-scale: 1.42;
+    --hero-scale: 1.04;
     width: 50vw;
     height: auto;
     min-height: 0;
     clip-path: inset(0 0 2px 2px);
   }
   .hero-portrait img {
-    object-position: 50% 20%;
-    transform-origin: 92% 24%;
+    object-position: 50% 30%;
+    transform-origin: 60% 30%;
   }
   .hero-portrait {
     --fade-top: linear-gradient(180deg, rgb(0 0 0 / 0.3) 0%, #000 18%);
@@ -922,6 +922,30 @@ body.menu-open .site-header {
   transform: scale(1.03);
 }
 
+/* Marque et écran côte à côte : le logo sur sa couleur, l'écran qui sort du cadre par le bas */
+.media-duo .duo-logo {
+  position: absolute;
+  top: 50%;
+  left: 6%;
+  width: 40%;
+  height: auto;
+  transform: translateY(-50%);
+}
+
+.media-duo .duo-screen {
+  position: absolute;
+  top: 12%;
+  right: 9%;
+  width: 34%;
+  height: auto;
+  border-radius: clamp(14px, 2vw, 22px);
+  box-shadow: 0 24px 60px -20px rgb(60 20 0 / 0.55);
+}
+
+.project:hover .media-duo .duo-screen {
+  transform: translateY(-8px);
+}
+
 .project-body {
   padding-top: 22px;
 }
@@ -1059,7 +1083,7 @@ body.menu-open .site-header {
    -------------------------------------------------------------------------- */
 .logo-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -1080,15 +1104,9 @@ body.menu-open .site-header {
   mix-blend-mode: multiply;
 }
 
-@media (min-width: 560px) {
-  .logo-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
 @media (min-width: 1024px) {
   .logo-grid {
-    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-template-columns: repeat(9, minmax(0, 1fr));
   }
 }
 
@@ -1141,6 +1159,7 @@ body.menu-open .site-header {
   width: 96px;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  object-position: 50% 35%;
   border-radius: 3px;
   background: var(--panel);
 }
@@ -1185,6 +1204,11 @@ body.menu-open .site-header {
   display: none;
 }
 
+/* Sur mobile les rangées s'effacent : toutes les photos défilent dans un seul ruban */
+.gallery-row {
+  display: contents;
+}
+
 .gallery figure {
   flex: none;
   scroll-snap-align: start;
@@ -1208,10 +1232,20 @@ body.menu-open .site-header {
 @media (min-width: 900px) {
   .gallery {
     display: grid;
-    grid-template-columns: 0.75fr 0.665fr 1.776fr 0.75fr;
+    row-gap: 32px;
     margin-inline: 0;
     padding-inline: 0;
     overflow: visible;
+  }
+  /* Rangées justifiées : chaque photo prend une largeur proportionnelle à son format,
+     toutes les photos d'une rangée ont donc la même hauteur. */
+  .gallery-row {
+    display: flex;
+    gap: 12px;
+  }
+  .gallery-row figure {
+    flex: var(--w) 1 0;
+    min-width: 0;
   }
   .gallery img {
     width: 100%;
@@ -1702,7 +1736,7 @@ body.menu-open .site-header {
   }
 
   .js .hero-portrait[data-reveal="mask"] img {
-    scale: 1.6;
+    scale: 1.22;
     transition: scale 4200ms var(--ease) 120ms;
   }
 
